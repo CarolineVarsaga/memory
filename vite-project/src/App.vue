@@ -41,7 +41,7 @@
   };
 
   const resetGame = () => {
-    const symbols = ['🍎', '🍌', '🍒', '🍇'];
+    const symbols = ['🍎', '🍌', '🍒', '🍇', '🍓', '🍐', '🥝', '🫐'];
     const shuffledCards = symbols.concat(symbols).map(symbol => ({
       symbol,
       flipped: false,
