@@ -78,4 +78,37 @@
     text-align: center;
     margin-top: 60px;
   }
+  
+  .memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+  }
+
+  .memory-card {
+    width: 100px;
+    height: 100px;
+    background: #2d3748;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .memory-card.flipped, .memory-card.matched {
+    background: #38a169;
+    transform: rotateY(180deg);
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
 </style>
