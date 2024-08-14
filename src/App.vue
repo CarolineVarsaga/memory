@@ -1,14 +1,9 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import type { ICard } from './interface/icard.ts';
 
-  interface Card {
-    symbol: string; 
-    flipped: boolean; 
-    matched: boolean; 
-  }
-
-  const cards = ref<Card[]>([]);
-  const flippedCards = ref<{ index: number; card: Card }[]>([]);
+  const cards = ref<ICard[]>([]);
+  const flippedCards = ref<{ index: number; card: ICard }[]>([]);
 
   const flipCard = (index: number) => {
     const card = cards.value[index];
@@ -52,7 +47,13 @@
     flippedCards.value = [];
   };
 
-  resetGame();
+  resetGame(); 
+
+  /* import { cards, flipCard, resetGame } from './modules/gameLogic.ts';
+  import CardComponent from './components/CardComponent.vue';
+
+  resetGame(); */
+
 </script>
 
 <template>
@@ -69,10 +70,43 @@
       </div>
     </div>
     <button @click="resetGame">Reset Game</button>
-  </div>
+  </div> 
+  <!-- <div id="app">
+    <h1>Memory Game</h1>
+    <div class="memory-game">
+      <CardComponent
+        v-for="(card, index) in cards"
+        :key="index"
+        :card="card"
+        :index="index"
+        @flip="flipCard"
+      />
+    </div>
+    <button @click="resetGame">Reset Game</button>
+  </div> -->
 </template>
 
 <style scoped>
+
+/* #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+} */
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     text-align: center;
@@ -110,5 +144,5 @@
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
-  }
+  } 
 </style>
